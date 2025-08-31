@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex AI Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Prevents FOUC (Flash of Unstyled Content) for theme changes
+      if (
+        localStorage.getItem('apex-theme') === 'dark' ||
+        (!('apex-theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Light Theme
+              'light-background': '#FFFFFF',
+              'light-sidebar': '#F9F9F9',
+              'light-input': '#F0F0F0',
+              'light-card': '#F0F0F0',
+              'light-card-hover': '#EAEAEA',
+              'light-bubble-user': '#4F46E5', // indigo-600
+              'light-bubble-model': '#EAEAEA',
+              'light-foreground': '#1a1a1a',
+              'light-muted-foreground': '#6B7280', // gray-500
+              'light-bubble-user-text': '#FFFFFF',
+              'light-bubble-model-text': '#1a1a1a',
+              'light-code-artifact': '#F9FAFB', // gray-50
+              'light-code-header': '#E5E7EB', // gray-200
+
+              // Dark Theme
+              'dark-background': '#1a1a1a',
+              'dark-sidebar': '#242424',
+              'dark-input': '#3a3a3a',
+              'dark-card': '#242424',
+              'dark-card-hover': '#3a3a3a',
+              'dark-bubble-user': '#4F46E5', // indigo-600
+              'dark-bubble-model': '#3a3a3a',
+              'dark-foreground': '#F9F9F9',
+              'dark-muted-foreground': '#9CA3AF', // gray-400
+              'dark-bubble-user-text': '#FFFFFF',
+              'dark-bubble-model-text': '#F9F9F9',
+              'dark-code-artifact': '#111827', // gray-900
+              'dark-code-header': '#1F2937', // gray-800
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Hide scrollbar for textarea */
+      .hide-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+      }
+
+      /* Simple pulsing dots animation */
+      @keyframes pulsing-dots {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+      }
+      .pulsing-dot {
+        animation: pulsing-dots 1.4s ease-in-out infinite;
+      }
+      .pulsing-dot:nth-child(1) { animation-delay: 0s; }
+      .pulsing-dot:nth-child(2) { animation-delay: 0.2s; }
+      .pulsing-dot:nth-child(3) { animation-delay: 0.4s; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0",
+    "remark-gfm": "https://aistudiocdn.com/remark-gfm@^4.0.1",
+    "react-syntax-highlighter/": "https://aistudiocdn.com/react-syntax-highlighter@^15.6.6/",
+    "react-syntax-highlighter": "https://aistudiocdn.com/react-syntax-highlighter@^15.6.6",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.2.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-light-background dark:bg-dark-background text-light-foreground dark:text-dark-foreground">
+    <div id="root"></div>
+    
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

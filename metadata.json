@@ -1,0 +1,7 @@
+{
+  "name": "Apex AI Chat",
+  "description": "An intuitive and reactive web chat interface for a personalized generative AI named 'Apex'. It provides a high-quality chat experience similar to leading AI assistants, with features like conversation management and markdown rendering.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
